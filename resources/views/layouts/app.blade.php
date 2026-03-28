@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
 
 <head>
     <meta charset="UTF-8" />
@@ -44,9 +44,15 @@
 </head>
 
 <body class="bg-white text-gray-800 font-body overflow-x-hidden scroll-smooth">
+        <!-- ══════════ NAVBAR ══════════ -->
+    <livewire:home.sections.navbar />
+
     {{ $slot }}
 
     @livewireScripts
+        
+    <!-- ══════════ FOOTER ══════════ -->
+    <livewire:home.sections.footer />
 </body>
 
 </html>

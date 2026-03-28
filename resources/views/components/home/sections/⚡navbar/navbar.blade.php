@@ -17,25 +17,12 @@
       <div class="hidden xl:flex items-center gap-5 text-[13px] font-semibold text-gray-700 flex-1 justify-center">
 
         <!-- Home dropdown -->
-        <div class="dropdown dropdown-hover">
-          <div tabindex="0" role="button" class="flex items-center gap-1 cursor-pointer whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">
-            Home <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
-          </div>
-          <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-b-lg rounded-tl-none rounded-tr-none w-40 p-1 shadow-lg border-t-[3px] border-gold z-[200] mt-2">
-            <li><a href="#" class="text-sm hover:text-gold hover:bg-amber-50 rounded-none">Home Style 1</a></li>
-            <li><a href="#" class="text-sm hover:text-gold hover:bg-amber-50 rounded-none">Home Style 2</a></li>
-          </ul>
-        </div>
+                <a href="/" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Home</a>
+
 
         <!-- About dropdown -->
-        <div class="dropdown dropdown-hover">
-          <div tabindex="0" role="button" class="flex items-center gap-1 cursor-pointer whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">
-            About Us <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
-          </div>
-          <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-b-lg rounded-tl-none rounded-tr-none w-40 p-1 shadow-lg border-t-[3px] border-gold z-[200] mt-2">
-            <li><a href="#about" class="text-sm hover:text-gold hover:bg-amber-50 rounded-none">About Style 1</a></li>
-          </ul>
-        </div>
+               <a href="#about" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">About Us</a>
+
 
         <!-- Lawyers dropdown -->
         <div class="dropdown dropdown-hover">
@@ -57,10 +44,10 @@
           </ul>
         </div>
 
-        <a href="#" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Gallery</a>
-        <a href="#blog" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Blogs</a>
-        <a href="#" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">FAQs</a>
-        <a href="#footer" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Contact Us</a>
+        <a href="/gallery" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Gallery</a>
+        <a href="/blogs" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Blogs</a>
+        <a href="/faqs" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">FAQs</a>
+        <a href="/contact-us" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Contact Us</a>
       </div>
 
       <!-- Right side: search + socials + contacts -->
