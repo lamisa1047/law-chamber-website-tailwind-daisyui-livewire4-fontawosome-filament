@@ -13,121 +13,89 @@
         </div>
       </a>
 
-      <!-- Desktop nav links -->
+      <!-- Desktop nav -->
       <div class="hidden xl:flex items-center gap-5 text-[13px] font-semibold text-gray-700 flex-1 justify-center">
+        <a href="/" class="hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">Home</a>
+        <a href="#about" class="hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">About Us</a>
 
-        <!-- Home dropdown -->
-                <a href="/" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Home</a>
-
-
-        <!-- About dropdown -->
-               <a href="#about" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">About Us</a>
-
-
-        <!-- Lawyers dropdown -->
         <div class="dropdown dropdown-hover">
-          <div tabindex="0" role="button" class="flex items-center gap-1 cursor-pointer whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">
+          <div tabindex="0" class="flex items-center gap-1 cursor-pointer hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">
             Our Lawyers <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
           </div>
-          <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-b-lg rounded-tl-none rounded-tr-none w-40 p-1 shadow-lg border-t-[3px] border-gold z-[200] mt-2">
-            <li><a href="#attorneys" class="text-sm hover:text-gold hover:bg-amber-50 rounded-none">All Attorneys</a></li>
+          <ul class="dropdown-content menu bg-base-100 w-40 p-1 shadow-lg border-t-[3px] border-gold mt-2">
+            <li><a href="#attorneys" class="text-sm hover:text-gold">All Attorneys</a></li>
           </ul>
         </div>
 
-        <!-- Expertise dropdown -->
         <div class="dropdown dropdown-hover">
-          <div tabindex="0" role="button" class="flex items-center gap-1 cursor-pointer whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">
+          <div tabindex="0" class="flex items-center gap-1 cursor-pointer hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">
             Expertise <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
           </div>
-          <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-b-lg rounded-tl-none rounded-tr-none w-40 p-1 shadow-lg border-t-[3px] border-gold z-[200] mt-2">
-            <li><a href="#services" class="text-sm hover:text-gold hover:bg-amber-50 rounded-none">All Services</a></li>
+          <ul class="dropdown-content menu bg-base-100 w-40 p-1 shadow-lg border-t-[3px] border-gold mt-2">
+            <li><a href="#services" class="text-sm hover:text-gold">All Services</a></li>
           </ul>
         </div>
 
-        <a href="/gallery" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Gallery</a>
-        <a href="/blogs" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Blogs</a>
-        <a href="/faqs" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">FAQs</a>
-        <a href="/contact-us" class="whitespace-nowrap hover:text-gold transition-colors pb-1 border-b-2 border-transparent hover:border-gold">Contact Us</a>
+        <a href="/gallery" class="hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">Gallery</a>
+        <a href="/blogs" class="hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">Blogs</a>
+        <a href="/faqs" class="hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">FAQs</a>
+        <a href="/contact-us" class="hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">Contact Us</a>
       </div>
 
-      <!-- Right side: search + socials + contacts -->
-      <div class="hidden xl:flex items-center gap-3 flex-shrink-0 ml-4">
-        <button class="text-gray-500 hover:text-gold transition-colors text-[15px]"><i class="fas fa-search"></i></button>
+      <!-- Right side -->
+      <div class="hidden xl:flex items-center gap-3 ml-4">
+        <button class="text-gray-500 hover:text-gold"><i class="fas fa-search"></i></button>
 
-        <div class="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 text-xs cursor-pointer hover:border-gold hover:text-gold transition-all">
+        <div class="w-8 h-8 rounded-full border flex items-center justify-center text-gray-500 text-xs hover:text-gold">
           <i class="fab fa-facebook-f"></i>
         </div>
-        <div class="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 text-xs cursor-pointer hover:border-gold hover:text-gold transition-all">
+
+        <div class="w-8 h-8 rounded-full border flex items-center justify-center text-gray-500 text-xs hover:text-gold">
           <i class="fab fa-twitter"></i>
         </div>
 
-        <div class="w-px h-5 bg-gray-200 flex-shrink-0"></div>
+        <div class="w-px h-5 bg-gray-200"></div>
 
-        <a href="tel:+12345678901" class="flex items-center gap-1.5 text-gold text-[13px] font-semibold whitespace-nowrap hover:text-gold-dark transition-colors">
-          <i class="fas fa-phone text-xs"></i> +1 (234) 567-890
-        </a>
-
-        <div class="w-px h-5 bg-gray-200 flex-shrink-0"></div>
-
-        <a href="/cdn-cgi/l/email-protection#2d44434b426d48435e4c4b03414c5a" class="flex items-center gap-1.5 text-gold text-[13px] font-semibold whitespace-nowrap hover:text-gold-dark transition-colors">
-          <i class="fas fa-envelope text-xs"></i> <span class="__cf_email__" data-cfemail="cea7a0a8a18eaba0bdafa8e0a2afb9">[email&#160;protected]</span>
+        <a href="tel:+12345678901" class="text-gold text-sm font-semibold">
+          <i class="fas fa-phone"></i> +1 (234) 567-890
         </a>
       </div>
 
-      <!-- lg but not xl: compact CTA -->
-      <div class="hidden lg:flex xl:hidden items-center gap-3 ml-auto">
-        <button class="text-gray-500 hover:text-gold transition-colors"><i class="fas fa-search"></i></button>
-        <a href="#consultation" class="flex items-center gap-2 bg-gold text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-gold-dark transition-all shadow-md whitespace-nowrap">
-          Free Consultation <i class="fas fa-arrow-right text-xs"></i>
-        </a>
-      </div>
-
-      <!-- Mobile hamburger -->
-      <label for="mobile-drawer" class="lg:hidden text-forest text-2xl p-1 ml-auto cursor-pointer">
+      <!-- Mobile button -->
+      <button id="menu-btn" class="lg:hidden text-2xl ml-auto text-forest">
         <i class="fas fa-bars"></i>
-      </label>
+      </button>
+
     </div>
   </div>
 
-  <!-- Mobile menu via DaisyUI collapse -->
-  <div id="mobile-nav" class="lg:hidden hidden border-t-[3px] border-gold bg-white px-6 pb-6 pt-2 flex-col gap-1">
-    <div class="collapse collapse-arrow rounded-none border-b border-gray-100">
-      <input type="checkbox" class="min-h-0"/>
-      <div class="collapse-title font-semibold text-sm text-gray-700 min-h-0 py-3 px-0">Home</div>
-      <div class="collapse-content px-0 pb-2">
-        <a href="#" class="block text-sm text-gray-500 py-1.5 hover:text-gold transition-colors">Home Style 1</a>
-        <a href="#" class="block text-sm text-gray-500 py-1.5 hover:text-gold transition-colors">Home Style 2</a>
-      </div>
+  <!-- MOBILE MENU -->
+  <div id="mobile-nav" class="lg:hidden hidden border-t-[3px] border-gold bg-white px-6 pb-6 pt-3 flex-col gap-1 transition-all duration-300">
+
+    <a href="/" class="block py-3 border-b hover:text-gold">Home</a>
+    <a href="#about" class="block py-3 border-b hover:text-gold">About Us</a>
+    <a href="#attorneys" class="block py-3 border-b hover:text-gold">Our Lawyers</a>
+    <a href="#services" class="block py-3 border-b hover:text-gold">Expertise</a>
+    <a href="/gallery" class="block py-3 border-b hover:text-gold">Gallery</a>
+    <a href="/blogs" class="block py-3 border-b hover:text-gold">Blogs</a>
+    <a href="/faqs" class="block py-3 border-b hover:text-gold">FAQs</a>
+    <a href="/contact-us" class="block py-3 border-b hover:text-gold">Contact Us</a>
+
+    <div class="mt-4 flex flex-col gap-2">
+      <a href="tel:+12345678901" class="text-gold font-semibold">
+        <i class="fas fa-phone"></i> +1 (234) 567-890
+      </a>
     </div>
-    <div class="collapse collapse-arrow rounded-none border-b border-gray-100">
-      <input type="checkbox" class="min-h-0"/>
-      <div class="collapse-title font-semibold text-sm text-gray-700 min-h-0 py-3 px-0">About Us</div>
-      <div class="collapse-content px-0 pb-2">
-        <a href="#about" class="block text-sm text-gray-500 py-1.5 hover:text-gold transition-colors">About Style 1</a>
-      </div>
-    </div>
-    <div class="collapse collapse-arrow rounded-none border-b border-gray-100">
-      <input type="checkbox" class="min-h-0"/>
-      <div class="collapse-title font-semibold text-sm text-gray-700 min-h-0 py-3 px-0">Our Lawyers</div>
-      <div class="collapse-content px-0 pb-2">
-        <a href="#attorneys" class="block text-sm text-gray-500 py-1.5 hover:text-gold transition-colors">All Attorneys</a>
-      </div>
-    </div>
-    <div class="collapse collapse-arrow rounded-none border-b border-gray-100">
-      <input type="checkbox" class="min-h-0"/>
-      <div class="collapse-title font-semibold text-sm text-gray-700 min-h-0 py-3 px-0">Expertise</div>
-      <div class="collapse-content px-0 pb-2">
-        <a href="#services" class="block text-sm text-gray-500 py-1.5 hover:text-gold transition-colors">All Services</a>
-      </div>
-    </div>
-    <a href="#" class="block font-semibold text-sm text-gray-700 py-3 border-b border-gray-100 hover:text-gold transition-colors">Gallery</a>
-    <a href="#blog" class="block font-semibold text-sm text-gray-700 py-3 border-b border-gray-100 hover:text-gold transition-colors">Blogs</a>
-    <a href="#" class="block font-semibold text-sm text-gray-700 py-3 border-b border-gray-100 hover:text-gold transition-colors">FAQs</a>
-    <a href="#footer" class="block font-semibold text-sm text-gray-700 py-3 border-b border-gray-100 hover:text-gold transition-colors">Contact Us</a>
-    <div class="mt-3 pt-3 border-t border-gray-100 flex flex-col gap-2">
-      <a href="tel:+12345678901" class="flex items-center gap-2 text-gold font-semibold text-sm"><i class="fas fa-phone text-xs"></i> +1 (234) 567-890</a>
-      <a href="/cdn-cgi/l/email-protection#b1d8dfd7def1d4dfc2d0d79fddd0c6" class="flex items-center gap-2 text-gold font-semibold text-sm"><i class="fas fa-envelope text-xs"></i> <span class="__cf_email__" data-cfemail="8ae3e4ece5caefe4f9ebeca4e6ebfd">[email&#160;protected]</span></a>
-    </div>
-    <a href="#consultation" class="mt-3 bg-gold text-white text-center py-3 rounded-full font-bold text-sm hover:bg-gold-dark transition-colors block">Free Consultation →</a>
-  </div>
+
+    
 </nav>
+
+<!-- SCRIPT -->
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-nav');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
