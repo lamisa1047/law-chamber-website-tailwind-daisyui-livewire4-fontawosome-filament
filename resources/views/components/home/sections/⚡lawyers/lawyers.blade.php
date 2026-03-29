@@ -1,5 +1,5 @@
 <!-- ══════════ ATTORNEYS ══════════ -->
-<section id="attorneys" class="py-12 sm:py-16 lg:py-20 bg-gray-100">
+<section id="attorneys" class="py-12 sm:py-16 lg:py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 sm:mb-12">
       <div>

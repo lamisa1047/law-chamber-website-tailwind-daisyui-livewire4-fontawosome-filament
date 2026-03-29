@@ -27,14 +27,8 @@
           </ul>
         </div>
 
-        <div class="dropdown dropdown-hover">
-          <div tabindex="0" class="flex items-center gap-1 cursor-pointer hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">
-            Expertise <i class="fas fa-chevron-down text-[10px] opacity-50"></i>
-          </div>
-          <ul class="dropdown-content menu bg-base-100 w-40 p-1 shadow-lg border-t-[3px] border-gold mt-2">
-            <li><a href="#services" class="text-sm hover:text-gold">All Services</a></li>
-          </ul>
-        </div>
+       <a href="" class="hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">Expertise</a>
+
 
         <a href="/gallery" class="hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">Gallery</a>
         <a href="/blogs" class="hover:text-gold pb-1 border-b-2 border-transparent hover:border-gold">Blogs</a>

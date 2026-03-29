@@ -1,5 +1,5 @@
 <!-- ══════════ CONSULTATION ══════════ -->
-<section id="consultation" class="py-12 sm:py-16 lg:py-20 bg-white">
+<section id="consultation" class="bg-gray-100 py-12 sm:py-16 lg:py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-10 sm:mb-14">
       <div class="text-[0.75rem] tracking-[0.2em] uppercase font-bold text-gold mb-2">Schedule Consultation</div>

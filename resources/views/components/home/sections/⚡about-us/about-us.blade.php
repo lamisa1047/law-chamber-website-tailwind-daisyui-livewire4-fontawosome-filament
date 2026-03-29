@@ -1,69 +1,103 @@
-<section id="about" class="py-12 sm:py-16 lg:py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 items-center">
+<!-- About Section -->
+<section class="bg-[var(--color-background-primary)] font-[Jost] py-16 px-6 overflow-hidden">
+    <div class="max-w-[1100px] mx-auto grid md:grid-cols-2 gap-16 items-center">
 
-      <!-- Collage — 3 images, desktop overlapping frame layout -->
-      <div class="relative hidden lg:block" style="height:500px;">
+        <!-- IMAGE -->
+        <div class="relative flex items-center justify-center md:order-none order-first">
+            <div class="relative w-[min(340px,80vw)] aspect-[3/4]">
 
-        <!-- Decorative gold border frame behind main image -->
-        <div class="absolute top-[28px] left-[28px] w-[300px] h-[370px] rounded-2xl border-2 border-gold opacity-40"></div>
+                <!-- Border Frame -->
+                <div
+                    class="absolute top-6 left-6 right-[-24px] bottom-[-24px] border border-[#C9A84C] pointer-events-none">
+                </div>
 
-        <!-- Image 1 — large left, main portrait -->
-        <div class="absolute top-0 left-0 w-[300px] h-[370px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-200">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="attorney"
-               class="w-full h-full object-cover"/>
+                <!-- Marker -->
+                <div class="absolute top-10 -left-7 flex flex-col gap-1.5">
+                    <span class="block h-[1px] w-10 bg-[#C9A84C]"></span>
+                    <span class="block h-[1px] w-7 bg-[#C9A84C]"></span>
+                    <span class="block h-[1px] w-4 bg-[#C9A84C]"></span>
+                </div>
+
+                <!-- Image -->
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" alt="Attorney"
+                    class="w-full h-full object-cover object-top rounded-xl transition-transform duration-700 hover:scale-105"
+                    loading="lazy" />
+
+                {{-- <!-- Badge -->
+        <div class="absolute -bottom-5 -right-5 bg-[#1a3a2a] text-white text-[11px] tracking-[0.12em] uppercase font-medium px-5 py-3 text-center leading-tight">
+          Est. 1998<br>New York
+        </div> --}}
+
+            </div>
         </div>
 
-        <!-- Image 2 — top right -->
-        <div class="absolute top-0 right-0 w-[210px] h-[225px] rounded-2xl overflow-hidden shadow-xl border-4 border-white ring-1 ring-gray-200">
-          <img src="https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=600&q=80" alt="scales"
-               class="w-full h-full object-cover"/>
+        <!-- CONTENT -->
+        <div>
+
+            <!-- Rule -->
+            <div class="w-12 h-[1px] bg-[#C9A84C] mb-6"></div>
+
+            <!-- Eyebrow -->
+            <p class="text-[11px] tracking-[0.22em] uppercase text-[#8a7a52] mb-5 font-medium">
+                About the firm
+            </p>
+
+            <!-- Heading -->
+            <h2 class="font-serif text-[clamp(28px,4vw,48px)] leading-tight text-[var(--color-text-primary)] mb-3">
+                A Legacy of <br>
+                <em class="italic text-[#1a3a2a]">Legal</em> Excellence
+            </h2>
+
+            <!-- Subheading -->
+            <p class="font-serif italic text-[clamp(13px,1.5vw,16px)] text-[#7a8f80] mb-8 leading-relaxed">
+                Trusted counsel for individuals,<br>
+                families, and enterprises since 1998.
+            </p>
+
+            <!-- Divider -->
+            <div class="flex items-center gap-3 mb-7">
+                <span class="flex-1 h-[1px] bg-[var(--color-border-tertiary)]"></span>
+                <span class="text-[10px] tracking-[0.15em] uppercase text-[#C9A84C] font-medium whitespace-nowrap">
+                    our practice
+                </span>
+                <span class="flex-1 h-[1px] bg-[var(--color-border-tertiary)]"></span>
+            </div>
+
+            <!-- Body -->
+            <p class="text-sm font-light leading-[1.85] text-[var(--color-text-secondary)] mb-10 max-w-[480px]">
+                Our team of experienced attorneys brings together a wide range of legal expertise — from corporate and
+                family law to civil litigation. We help individuals and organizations navigate complex legal challenges
+                with clarity, confidence, and precision.
+            </p>
+
+            {{-- <!-- Stats -->
+      <div class="grid grid-cols-3 border border-[var(--color-border-tertiary)] mb-10">
+        <div class="text-center px-5 py-4 border-r border-[var(--color-border-tertiary)]">
+          <div class="font-serif text-[26px] font-bold text-[#1a3a2a] leading-none">26+</div>
+          <div class="text-[10px] tracking-[0.15em] uppercase text-[#8a7a52] mt-1 font-medium">Years</div>
+        </div>
+        <div class="text-center px-5 py-4 border-r border-[var(--color-border-tertiary)]">
+          <div class="font-serif text-[26px] font-bold text-[#1a3a2a] leading-none">840</div>
+          <div class="text-[10px] tracking-[0.15em] uppercase text-[#8a7a52] mt-1 font-medium">Cases Won</div>
+        </div>
+        <div class="text-center px-5 py-4">
+          <div class="font-serif text-[26px] font-bold text-[#1a3a2a] leading-none">12</div>
+          <div class="text-[10px] tracking-[0.15em] uppercase text-[#8a7a52] mt-1 font-medium">Attorneys</div>
+        </div>
+      </div> --}}
+
+            <!-- CTA -->
+            <a href="#"
+                class="inline-flex items-center gap-2.5 border border-[#1a3a2a] px-6 py-3 text-[12px] tracking-[0.18em] uppercase font-medium text-[#1a3a2a] transition-all duration-300 hover:bg-[#1a3a2a] hover:text-white group">
+                More About Us
+                <svg class="transition-transform duration-300 group-hover:translate-x-1" width="14" height="14"
+                    fill="none" viewBox="0 0 14 14">
+                    <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+
         </div>
 
-        <!-- Image 3 — bottom right -->
-        <div class="absolute bottom-0 right-0 w-[210px] h-[210px] rounded-2xl overflow-hidden shadow-xl border-4 border-white ring-1 ring-gray-200">
-          <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=600&q=80" alt="law books"
-               class="w-full h-full object-cover"/>
-        </div>
-
-        <!-- Experience badge -->
-        <div class="absolute bottom-4 left-[230px] w-[110px] h-[110px] rounded-full bg-gold flex flex-col items-center justify-center text-white shadow-xl ring-4 ring-white z-10">
-          <i class="fas fa-balance-scale text-2xl mb-1"></i>
-          <div class="text-xs font-bold text-center leading-tight">25 Years<br>Experience</div>
-        </div>
-
-      </div>
-
-      <!-- Mobile collage: 3 images stacked nicely -->
-      <div class="flex flex-col gap-3 lg:hidden">
-        <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-white ring-1 ring-gray-200 h-[240px]">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="attorney" class="w-full h-full object-cover"/>
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-white ring-1 ring-gray-200 h-[160px]">
-            <img src="https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=600&q=80" alt="scales" class="w-full h-full object-cover"/>
-          </div>
-          <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-white ring-1 ring-gray-200 h-[160px]">
-            <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=600&q=80" alt="law books" class="w-full h-full object-cover"/>
-          </div>
-        </div>
-      </div>
-
-      <!-- Content -->
-      <div class="animate-[fadeIn_0.65s_ease_forwards]">
-        <div class="text-[0.75rem] tracking-[0.2em] uppercase font-bold text-gold mb-3">About Us</div>
-        <h2 class="text-3xl sm:text-4xl xl:text-5xl font-display font-bold text-forest leading-tight mb-5">A Legacy Of Legal Excellence</h2>
-        <p class="text-gray-600 leading-relaxed mb-5 text-sm sm:text-base">Our team of experienced attorneys has a diverse range of expertise, covering a wide spectrum of legal areas. We specialize in corporate law, family law.</p>
-        <ul class="space-y-3 mb-7">
-          <li class="flex items-start gap-3 text-gray-700 text-sm sm:text-base"><span class="w-2 h-2 bg-gold rounded-full flex-shrink-0 mt-2"></span>Committed to excellence in legal practice.</li>
-          <li class="flex items-start gap-3 text-gray-700 text-sm sm:text-base"><span class="w-2 h-2 bg-gold rounded-full flex-shrink-0 mt-2"></span>Act with honesty and uphold ethical principles.</li>
-          <li class="flex items-start gap-3 text-gray-700 text-sm sm:text-base"><span class="w-2 h-2 bg-gold rounded-full flex-shrink-0 mt-2"></span>Road Test Preparation with 98% success.</li>
-          <li class="flex items-start gap-3 text-gray-700 text-sm sm:text-base"><span class="w-2 h-2 bg-gold rounded-full flex-shrink-0 mt-2"></span>Meeting clients' needs is our priority.</li>
-        </ul>
-        <a href="#" class="inline-flex items-center gap-2 bg-gold text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-gold-dark transition-all shadow-lg text-sm sm:text-base">
-          More About <i class="fas fa-arrow-right text-xs"></i>
-        </a>
-      </div>
     </div>
-  </div>
 </section>
