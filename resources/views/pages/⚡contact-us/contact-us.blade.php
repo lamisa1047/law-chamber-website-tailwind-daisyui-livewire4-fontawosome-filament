@@ -6,6 +6,11 @@
 <section class="py-12 sm:py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
+    <div class="mb-5mb-8 sm:mb-12">
+      <div class="text-[0.75rem] tracking-[0.2em] uppercase font-bold text-gold mb-2">You can call us, send message, or visit office</div>
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-forest">Contact Us</h2>
+    </div>
+
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
       <!-- ═══ Contact Form ═══ -->
