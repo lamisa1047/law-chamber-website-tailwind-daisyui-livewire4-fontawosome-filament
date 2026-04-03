@@ -7,7 +7,42 @@
       return this.hash === (href.startsWith('/') ? href.slice(1) : href);
     }
     return this.path === href || this.path.startsWith(href + '/');
-  }
+  },
+  scrollToSection(e, href) {
+    if (!href.includes('#')) return;
+
+    e.preventDefault();
+
+    let id = '';
+
+    if (href.startsWith('/#')) {
+      id = href.split('/#')[1];
+
+      if (window.location.pathname !== '/') {
+        window.location.href = '/#' + id;
+        return;
+      }
+    } else {
+      id = href.split('#')[1];
+    }
+
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    this.open = false;
+    this.hash = '#' + id;
+
+    window.history.pushState(null, '', '/#' + id);
+
+    setTimeout(() => {
+      const nav = document.querySelector('nav');
+      const navHeight = nav ? nav.offsetHeight : 0;
+
+      const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+
+      window.scrollTo({ top, behavior: 'smooth' });
+  }, 10);
+}
 }" x-init="
   window.addEventListener('hashchange', () => hash = window.location.hash);
   window.addEventListener('popstate', () => { path = window.location.pathname; hash = window.location.hash; });
@@ -33,15 +68,15 @@
           :class="isActive('/') && !hash ? 'text-gold border-gold' : 'text-gray-700 border-transparent hover:text-gold hover:border-gold'"
           class="pb-1 border-b-2 transition-colors">Home</a>
 
-        <a href="/#about-us"
+        <a href="/#about-us" @click="scrollToSection($event, '/#about-us')"
           :class="isActive('/#about-us') ? 'text-gold border-gold' : 'text-gray-700 border-transparent hover:text-gold hover:border-gold'"
           class="pb-1 border-b-2 transition-colors">About Us</a>
 
-        <a href="/#practice-areas"
+        <a href="/#practice-areas" @click="scrollToSection($event, '/#practice-areas')"
           :class="isActive('/#practice-areas') ? 'text-gold border-gold' : 'text-gray-700 border-transparent hover:text-gold hover:border-gold'"
           class="pb-1 border-b-2 transition-colors">Practice Areas</a>
 
-        <a href="/#attorneys"
+        <a href="/#attorneys" @click="scrollToSection($event, '/#attorneys')"
           :class="isActive('/#attorneys') ? 'text-gold border-gold' : 'text-gray-700 border-transparent hover:text-gold hover:border-gold'"
           class="pb-1 border-b-2 transition-colors">Our Lawyers</a>
 
@@ -106,21 +141,21 @@
         <i x-show="isActive('/') && !hash" class="fas fa-chevron-right text-gold text-xs"></i>
       </a>
 
-      <a href="/#about-us" @click="open = false"
+      <a href="/#about-us" @click="scrollToSection($event, '/#about-us')"
         :class="isActive('/#about-us') ? 'text-gold font-semibold' : 'text-gray-700'"
         class="flex items-center justify-between py-3 border-b border-gray-100 text-sm hover:text-gold transition-colors">
         About Us
         <i x-show="isActive('/#about-us')" class="fas fa-chevron-right text-gold text-xs"></i>
       </a>
 
-      <a href="/#practice-areas" @click="open = false"
+      <a href="/#practice-areas" @click="scrollToSection($event, '/#practice-areas')"
         :class="isActive('/#practice-areas') ? 'text-gold font-semibold' : 'text-gray-700'"
         class="flex items-center justify-between py-3 border-b border-gray-100 text-sm hover:text-gold transition-colors">
         Practice Areas
         <i x-show="isActive('/#practice-areas')" class="fas fa-chevron-right text-gold text-xs"></i>
       </a>
 
-      <a href="/#attorneys" @click="open = false"
+      <a href="/#attorneys" @click="scrollToSection($event, '/#attorneys')"
         :class="isActive('/#attorneys') ? 'text-gold font-semibold' : 'text-gray-700'"
         class="flex items-center justify-between py-3 border-b border-gray-100 text-sm hover:text-gold transition-colors">
         Our Lawyers
