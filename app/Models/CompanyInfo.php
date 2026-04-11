@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CompanyInfo extends Model
 {
@@ -10,6 +11,7 @@ class CompanyInfo extends Model
         'name',
         'logo',
         'image',
+        'attorney_id',
         'about_title',
         'about_content',
     ];
@@ -24,5 +26,10 @@ class CompanyInfo extends Model
     public function getLogoUrl(string $fallback = '/images/logo.png'): string
     {
         return $this->logo ?? $fallback;
+    }
+
+    public function attorney(): BelongsTo
+    {
+        return $this->belongsTo(Attorney::class, 'attorney_id');
     }
 }

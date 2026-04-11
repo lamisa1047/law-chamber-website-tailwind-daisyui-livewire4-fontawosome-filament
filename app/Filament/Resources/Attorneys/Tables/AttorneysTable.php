@@ -20,7 +20,8 @@ class AttorneysTable
                 ImageColumn::make('image')
                     ->circular()
                     ->width(44)
-                    ->height(44),
+                    ->imageHeight(44)
+                    ->disk('public'),
 
                 TextColumn::make('name')
                     ->searchable()

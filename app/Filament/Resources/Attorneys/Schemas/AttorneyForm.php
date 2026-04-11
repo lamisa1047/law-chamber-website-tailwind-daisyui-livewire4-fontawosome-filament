@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Attorneys\Schemas;
 
+use App\Enums\FilePath;
+use App\Enums\ImageSize;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
@@ -19,7 +21,9 @@ class AttorneyForm
                 Section::make('Basic Info')->schema([
                     FileUpload::make('image')
                         ->image()
-                        ->directory('attorneys')
+                        ->disk('public')
+                        ->directory(FilePath::ATTORNEY->value)
+                        ->maxSize(ImageSize::COMMON->value)
                         ->imagePreviewHeight('180')
                         ->columnSpanFull(),
 
@@ -91,10 +95,6 @@ class AttorneyForm
                 ])->columns(2),
 
                 Section::make('Settings')->schema([
-                    TextInput::make('sort_order')
-                        ->numeric()
-                        ->default(0),
-
                     Toggle::make('is_active')
                         ->default(true),
                 ])->columns(2),

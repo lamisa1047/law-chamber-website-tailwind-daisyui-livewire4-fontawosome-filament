@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Blogs\Schemas;
 
+use App\Enums\FilePath;
+use App\Enums\ImageSize;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -49,7 +51,9 @@ class BlogForm
 
                 FileUpload::make('image')
                     ->image()
-                    ->directory('blogs')
+                    ->disk('public')
+                    ->directory(FilePath::BLOG->value)
+                    ->maxSize(ImageSize::COMMON->value)
                     ->imagePreviewHeight('200')
                     ->columnSpanFull(),
             ])->columns(2),

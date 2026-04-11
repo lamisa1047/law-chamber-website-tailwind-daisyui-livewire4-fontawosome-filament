@@ -19,7 +19,8 @@ class GalleriesTable
             ->columns([
                 ImageColumn::make('image')
                     ->width(80)
-                    ->height(55),
+                    ->imageHeight(55)
+                ->disk('public'),
 
                 TextColumn::make('title')
                     ->searchable()

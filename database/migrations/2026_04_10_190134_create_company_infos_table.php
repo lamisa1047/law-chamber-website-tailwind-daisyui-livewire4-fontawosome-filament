@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('about_title')->nullable();
             $table->text('about_content')->nullable();
+            $table->foreignId('attorney_id')->nullable()->constrained('attorneys')->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

@@ -20,7 +20,8 @@ class BlogsTable
             ->columns([
                 ImageColumn::make('image')
                     ->width(60)
-                    ->imageHeight(40),
+                    ->imageHeight(40)
+                ->disk('public'),
 
                 TextColumn::make('title')
                     ->searchable()
