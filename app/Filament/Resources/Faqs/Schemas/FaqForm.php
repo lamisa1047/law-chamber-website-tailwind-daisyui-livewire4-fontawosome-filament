@@ -23,10 +23,6 @@ class FaqForm
                 ->rows(4)
                 ->columnSpanFull(),
 
-            TextInput::make('sort_order')
-                ->numeric()
-                ->default(0),
-
             Toggle::make('is_active')
                 ->default(true),
             ])->columns(2);

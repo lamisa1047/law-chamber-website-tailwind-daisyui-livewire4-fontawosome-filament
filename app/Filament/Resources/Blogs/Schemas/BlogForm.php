@@ -37,13 +37,25 @@ class BlogForm
                         ->columnSpanFull(),
 
                     Select::make('category')
-                        ->options(fn() => \App\Models\Category::pluck('name', 'name'))
+                        ->relationship('category', 'name')
+                        ->native(false)
                         ->searchable()
-                        ->preload(),
+                        ->preload()
+                        ->createOptionForm([
+                            TextInput::make('name')
+                                ->required()
+                                ->maxLength(255)
+                                ->live(onBlur: true)
+                                ->afterStateUpdated(
+                                    fn($state, callable $set) =>
+                                    $set('slug', str($state)->slug())
+                                ),
 
-                    TextInput::make('read_time')
-                        ->maxLength(20)
-                        ->placeholder('e.g. 6 min read'),
+                            TextInput::make('slug')
+                                ->required()
+                                ->unique(ignoreRecord: true)
+                                ->maxLength(255),
+                        ]),
 
                     TagsInput::make('tags')
                         ->placeholder('Add tag and press Enter')
@@ -51,10 +63,10 @@ class BlogForm
 
                     FileUpload::make('image')
                         ->image()
+                        ->imageEditor()
                         ->disk('public')
                         ->directory(FilePath::BLOG->value)
                         ->maxSize(ImageSize::MAX->value)
-                        ->imagePreviewHeight('200')
                         ->columnSpanFull(),
                 ])->columns(2),
 
@@ -80,6 +92,7 @@ class BlogForm
 
                 Section::make('Publishing')->schema([
                     Toggle::make('is_published')
+                        ->label('Published')
                         ->default(false)
                         ->live(),
 

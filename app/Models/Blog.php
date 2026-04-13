@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Blog extends Model
 {
@@ -13,7 +14,7 @@ class Blog extends Model
         'slug',
         'content',
         'image',
-        'category',
+        'category_id',
         'tags',
         'read_time',
         'is_published',
@@ -27,10 +28,10 @@ class Blog extends Model
     ];
 
     // Fetch all published blogs paginated, newest first
-    public static function getPaginated(int $perPage = 9): LengthAwarePaginator
+    public static function getPaginated(int $perPage = 9)
     {
-        return static::where('is_published', true)
-            ->orderByDesc('published_at')
+        return static::query()->where('is_published', true)
+            ->orderByDesc('created_at')
             ->paginate($perPage);
     }
 
@@ -38,7 +39,10 @@ class Blog extends Model
     public static function getByCategory(string $category, int $perPage = 9): LengthAwarePaginator
     {
         return static::where('is_published', true)
-            ->where('category', $category)
+            ->whereHas('category', function ($query) use ($category) {
+                $query->where('slug', $category); // or 'name'
+            })
+            ->with('category') // eager load properly
             ->orderByDesc('published_at')
             ->paginate($perPage);
     }
@@ -47,6 +51,7 @@ class Blog extends Model
     public static function getBySlug(string $slug): ?self
     {
         return static::where('is_published', true)
+            ->with('category')
             ->where('slug', $slug)
             ->first();
     }
@@ -82,5 +87,10 @@ class Blog extends Model
     public function getTagsArray(): array
     {
         return $this->tags ?? [];
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

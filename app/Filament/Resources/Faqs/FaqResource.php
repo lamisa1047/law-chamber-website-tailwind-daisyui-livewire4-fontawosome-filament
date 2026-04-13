@@ -22,8 +22,6 @@ class FaqResource extends Resource
 
     protected static ?int $navigationSort                    = 7;
 
-    protected static ?string $recordTitleAttribute = 'Faq';
-
     public static function form(Schema $schema): Schema
     {
         return FaqForm::configure($schema);

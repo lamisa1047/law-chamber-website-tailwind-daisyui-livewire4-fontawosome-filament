@@ -80,7 +80,7 @@
                 <i class="fas fa-envelope"></i>
               </div>
               <div>
-                <h4 class="font-bold text-forest">{{$contact->phone}}</h4>
+                <h4 class="font-bold text-forest">Email</h4>
                 <p class="text-sm text-gray-500">{{$contact->email}}</p>
               </div>
             </div>

@@ -77,7 +77,7 @@ class AttorneyForm
                         ->tel()
                         ->maxLength(20),
 
-                    TextInput::make('contact_whatsapp')
+                    TextInput::make('whatsapp')
                         ->label('WhatsApp')
                         ->prefix('+88')
                         ->tel()
@@ -87,10 +87,7 @@ class AttorneyForm
                         ->dehydrateStateUsing(function ($state) {
                             if (!$state) return null;
 
-                            // remove leading 0 if user types it
-                            $number = ltrim($state, '0');
-
-                            $number = str_replace("+88", "", $number);
+                            $number = str_replace("+88", "", $state);
 
                             return 'https://wa.me/+88' . $number;
                         })

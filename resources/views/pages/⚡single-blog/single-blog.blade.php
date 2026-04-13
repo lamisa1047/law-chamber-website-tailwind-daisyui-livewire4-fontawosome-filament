@@ -4,13 +4,17 @@
     <section class="py-14 sm:py-20 bg-forest text-white text-center">
         <div class="max-w-3xl mx-auto px-4">
             <!-- Category badge -->
+
+            @if ($this->post()?->category?->name)
             <span
                 class="inline-block bg-gold/20 border border-gold/40 text-gold text-[11px] font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5">
-                Legal Technology
+                {{$this->post()->category->name}}
             </span>
+            @endif
+
             <!-- Title -->
             <h1 class="text-3xl sm:text-5xl font-display font-bold leading-tight mb-5">
-                Technology is Transforming Legal Services with AI
+                {{$this->post()?->title}}
             </h1>
             <!-- Meta -->
             <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-white/50">

@@ -84,24 +84,34 @@
         <div class="border-t border-gray-100 pt-6 flex flex-wrap items-center justify-between gap-4">
 
           <div class="flex flex-wrap gap-3">
-            <a href="#"
-              class="inline-flex items-center gap-2 bg-forest hover:bg-forest/90 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all">
+            <a href="{{route('attorney',['id'=>$managingPartner?->attorney?->id])}}" class="inline-flex items-center gap-2 bg-forest hover:bg-forest/90 text-white text-sm font-medium px-5
+              py-2.5 rounded-xl transition-all">
               View Full Profile
               <i class="fas fa-arrow-right text-[11px]"></i>
             </a>
 
-            <a href="mailto:{{ $managingPartner?->attorney?->email }}"
+            @if ($managingPartner?->attorney?->whatsapp)
+            <a href="{{ $managingPartner?->attorney?->whatsapp }}"
               class="inline-flex items-center gap-2 border border-gray-200 hover:border-forest hover:bg-gray-50 text-forest text-sm font-medium px-5 py-2.5 rounded-xl transition-all">
+              <i class="fa-brands fa-whatsapp text-2xl"></i>
               Contact Now
             </a>
+            @endif
           </div>
 
           <div class="flex gap-2">
 
-            @if($managingPartner?->attorney?->linkedin)
-            <a href="{{ $managingPartner->attorney->linkedin }}"
+            @if($managingPartner?->attorney?->facebook)
+            <a href="{{ $managingPartner->attorney->facebook }}"
               class="w-9 h-9 rounded-xl border border-gray-200 hover:border-gold hover:text-gold text-gray-400 flex items-center justify-center transition-all">
-              <i class="fab fa-linkedin text-sm"></i>
+              <i class="fab fa-facebook text-sm"></i>
+            </a>
+            @endif
+            
+            @if($managingPartner?->attorney?->instagram)
+            <a href="{{ $managingPartner->attorney->instagram }}"
+              class="w-9 h-9 rounded-xl border border-gray-200 hover:border-gold hover:text-gold text-gray-400 flex items-center justify-center transition-all">
+              <i class="fab fa-instagram text-sm"></i>
             </a>
             @endif
 
@@ -111,6 +121,14 @@
               <i class="fab fa-twitter text-sm"></i>
             </a>
             @endif
+
+            @if($managingPartner?->attorney?->linkedin)
+            <a href="{{ $managingPartner->attorney->linkedin }}"
+              class="w-9 h-9 rounded-xl border border-gray-200 hover:border-gold hover:text-gold text-gray-400 flex items-center justify-center transition-all">
+              <i class="fab fa-linkedin text-sm"></i>
+            </a>
+            @endif
+
 
           </div>
 

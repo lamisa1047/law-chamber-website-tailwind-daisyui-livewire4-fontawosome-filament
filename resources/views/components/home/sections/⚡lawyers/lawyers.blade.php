@@ -4,8 +4,8 @@
 
     <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 sm:mb-12">
       <div>
-        <div class="text-[0.75rem] tracking-[0.2em] uppercase font-bold text-gold mb-2">Our Attorney</div>
-        <h2 class="text-3xl sm:text-4xl font-display font-bold text-forest">Meet Our Experienced Attorneys</h2>
+        <div class="text-[0.75rem] tracking-[0.2em] uppercase font-bold text-gold mb-2">Our Team</div>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-forest">Meet Our Expert Legal Team</h2>
         <div class="w-15 h-0.75 bg-linear-to-r from-gold to-gold-light rounded-sm mt-3"></div>
       </div>
     </div>

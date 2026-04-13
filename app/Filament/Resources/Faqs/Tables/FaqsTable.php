@@ -16,10 +16,6 @@ class FaqsTable
     {
         return $table
             ->columns([
-                TextColumn::make('sort_order')
-                    ->sortable()
-                    ->label('Order')
-                    ->width('60px'),
 
                 TextColumn::make('question')
                     ->searchable()

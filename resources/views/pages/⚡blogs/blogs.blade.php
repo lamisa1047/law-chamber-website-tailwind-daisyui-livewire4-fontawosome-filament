@@ -27,20 +27,22 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
 
             <!-- Card -->
-            <a href="/single-blog"
+            @foreach ($this->posts as $post)
+
+            <a href="{{route('post', ['slug'=> $post->slug])}}"
               class="group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col">
+
+              @if ($post?->image)
               <div class="relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=600&q=80"
+                <img src="/storage/{{$post?->image}}"
                   class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" alt="Blog" />
-                <span
-                  class="absolute top-3 left-3 bg-white/90 text-forest text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
-                  Civil Law
-                </span>
               </div>
+              @endif
+
               <div class="p-5 flex flex-col flex-1">
                 <h3
                   class="font-bold text-forest text-sm leading-snug mb-2 group-hover:text-gold transition-colors line-clamp-2">
-                  I mix legal expertise with project management skills
+                  {{$post?->title}}
                 </h3>
                 <p class="text-xs text-gray-400 leading-relaxed mb-4 line-clamp-2 flex-1">
                   Combining structured project management with legal expertise creates a powerful framework for handling
@@ -48,169 +50,16 @@
                 </p>
                 <div class="flex items-center justify-between pt-3 border-t border-gray-100">
                   <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-calendar text-gold text-[10px]"></i> March 5, 2026
+                    <i class="fas fa-calendar text-gold text-[10px]"></i> {{$post->created_at->format('d F, Y')}}
                   </span>
                   <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-clock text-gold text-[10px]"></i> 4 min
+                    <i class="fas fa-clock text-gold text-[10px]"></i> {{$post->created_at->since()}}
                   </span>
                 </div>
               </div>
             </a>
+            @endforeach
 
-            <!-- Card -->
-            <a href="#"
-              class="group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col">
-              <div class="relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80"
-                  class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" alt="Blog" />
-                <span
-                  class="absolute top-3 left-3 bg-white/90 text-forest text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
-                  Criminal Law
-                </span>
-              </div>
-              <div class="p-5 flex flex-col flex-1">
-                <h3
-                  class="font-bold text-forest text-sm leading-snug mb-2 group-hover:text-gold transition-colors line-clamp-2">
-                  Affordable legal representation with experience
-                </h3>
-                <p class="text-xs text-gray-400 leading-relaxed mb-4 line-clamp-2 flex-1">
-                  Access to quality legal representation should not be limited by financial constraints. Here's how
-                  experienced counsel can be accessible to all.
-                </p>
-                <div class="flex items-center justify-between pt-3 border-t border-gray-100">
-                  <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-calendar text-gold text-[10px]"></i> Feb 28, 2026
-                  </span>
-                  <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-clock text-gold text-[10px]"></i> 5 min
-                  </span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Card -->
-            <a href="#"
-              class="group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col">
-              <div class="relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80"
-                  class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" alt="Blog" />
-                <span
-                  class="absolute top-3 left-3 bg-white/90 text-forest text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
-                  Cyber Law
-                </span>
-              </div>
-              <div class="p-5 flex flex-col flex-1">
-                <h3
-                  class="font-bold text-forest text-sm leading-snug mb-2 group-hover:text-gold transition-colors line-clamp-2">
-                  Understanding cyber crime laws in Bangladesh
-                </h3>
-                <p class="text-xs text-gray-400 leading-relaxed mb-4 line-clamp-2 flex-1">
-                  The Digital Security Act and ICT Act have reshaped how digital offences are prosecuted. A practical
-                  overview for individuals and businesses.
-                </p>
-                <div class="flex items-center justify-between pt-3 border-t border-gray-100">
-                  <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-calendar text-gold text-[10px]"></i> Feb 15, 2026
-                  </span>
-                  <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-clock text-gold text-[10px]"></i> 7 min
-                  </span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Card -->
-            <a href="#"
-              class="group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col">
-              <div class="relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
-                  class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" alt="Blog" />
-                <span
-                  class="absolute top-3 left-3 bg-white/90 text-forest text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
-                  Family Law
-                </span>
-              </div>
-              <div class="p-5 flex flex-col flex-1">
-                <h3
-                  class="font-bold text-forest text-sm leading-snug mb-2 group-hover:text-gold transition-colors line-clamp-2">
-                  Child custody disputes and the best interest principle
-                </h3>
-                <p class="text-xs text-gray-400 leading-relaxed mb-4 line-clamp-2 flex-1">
-                  Bangladesh courts apply the best interest of the child principle in custody matters. Understanding how
-                  this standard is applied can help families navigate difficult disputes.
-                </p>
-                <div class="flex items-center justify-between pt-3 border-t border-gray-100">
-                  <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-calendar text-gold text-[10px]"></i> Feb 5, 2026
-                  </span>
-                  <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-clock text-gold text-[10px]"></i> 5 min
-                  </span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Card -->
-            <a href="#"
-              class="group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col">
-              <div class="relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80"
-                  class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" alt="Blog" />
-                <span
-                  class="absolute top-3 left-3 bg-white/90 text-forest text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
-                  Corporate
-                </span>
-              </div>
-              <div class="p-5 flex flex-col flex-1">
-                <h3
-                  class="font-bold text-forest text-sm leading-snug mb-2 group-hover:text-gold transition-colors line-clamp-2">
-                  Company formation and compliance in Bangladesh
-                </h3>
-                <p class="text-xs text-gray-400 leading-relaxed mb-4 line-clamp-2 flex-1">
-                  A step-by-step guide to registering a company under the Companies Act 1994 and maintaining ongoing
-                  regulatory compliance with RJSC.
-                </p>
-                <div class="flex items-center justify-between pt-3 border-t border-gray-100">
-                  <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-calendar text-gold text-[10px]"></i> Jan 28, 2026
-                  </span>
-                  <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-clock text-gold text-[10px]"></i> 8 min
-                  </span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Card -->
-            <a href="#"
-              class="group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col">
-              <div class="relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80"
-                  class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" alt="Blog" />
-                <span
-                  class="absolute top-3 left-3 bg-white/90 text-forest text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
-                  Banking Law
-                </span>
-              </div>
-              <div class="p-5 flex flex-col flex-1">
-                <h3
-                  class="font-bold text-forest text-sm leading-snug mb-2 group-hover:text-gold transition-colors line-clamp-2">
-                  Cheque dishonour cases under the Negotiable Instruments Act
-                </h3>
-                <p class="text-xs text-gray-400 leading-relaxed mb-4 line-clamp-2 flex-1">
-                  Section 138 proceedings remain one of the most common financial disputes in Bangladesh. Here is what
-                  creditors and debtors need to know.
-                </p>
-                <div class="flex items-center justify-between pt-3 border-t border-gray-100">
-                  <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-calendar text-gold text-[10px]"></i> Jan 18, 2026
-                  </span>
-                  <span class="text-[11px] text-gray-400 flex items-center gap-1">
-                    <i class="fas fa-clock text-gold text-[10px]"></i> 6 min
-                  </span>
-                </div>
-              </div>
-            </a>
 
           </div>
 
@@ -239,17 +88,6 @@
 
         <!-- ═══ Sidebar ═══ -->
         <div class="lg:col-span-1 flex flex-col gap-6 lg:sticky lg:top-24">
-
-          <!-- Search -->
-          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-            <p class="text-[10px] font-bold tracking-widest uppercase text-gold mb-3">Search</p>
-            <div
-              class="flex items-center gap-2 border border-gray-200 rounded-xl px-3 py-2 focus-within:border-forest transition-all">
-              <i class="fas fa-search text-gray-300 text-sm"></i>
-              <input type="text" placeholder="Search articles..."
-                class="flex-1 text-sm text-gray-700 outline-none bg-transparent placeholder-gray-300" />
-            </div>
-          </div>
 
           <!-- Categories -->
           <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
@@ -310,31 +148,6 @@
                 </a>
               </li>
             </ul>
-          </div>
-
-          <!-- Tags -->
-          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-            <p class="text-[10px] font-bold tracking-widest uppercase text-gold mb-4">Popular Tags</p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full hover:bg-forest hover:text-white transition-all cursor-pointer">Legal
-                Tech</span>
-              <span
-                class="bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full hover:bg-forest hover:text-white transition-all cursor-pointer">AI</span>
-              <span
-                class="bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full hover:bg-forest hover:text-white transition-all cursor-pointer">Supreme
-                Court</span>
-              <span
-                class="bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full hover:bg-forest hover:text-white transition-all cursor-pointer">Bangladesh</span>
-              <span
-                class="bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full hover:bg-forest hover:text-white transition-all cursor-pointer">Criminal</span>
-              <span
-                class="bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full hover:bg-forest hover:text-white transition-all cursor-pointer">Corporate</span>
-              <span
-                class="bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full hover:bg-forest hover:text-white transition-all cursor-pointer">Family</span>
-              <span
-                class="bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full hover:bg-forest hover:text-white transition-all cursor-pointer">Banking</span>
-            </div>
           </div>
 
         </div>

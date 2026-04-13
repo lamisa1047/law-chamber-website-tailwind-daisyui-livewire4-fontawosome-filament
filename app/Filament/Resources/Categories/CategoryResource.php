@@ -22,8 +22,6 @@ class CategoryResource extends Resource
 
     protected static ?int $navigationSort                   = 4;
 
-    protected static ?string $recordTitleAttribute = 'Category';
-
     public static function form(Schema $schema): Schema
     {
         return CategoryForm::configure($schema);

@@ -22,8 +22,6 @@ class GalleryResource extends Resource
 
     protected static ?int $navigationSort                    = 5;
 
-    protected static ?string $recordTitleAttribute = 'Gallery';
-
     public static function form(Schema $schema): Schema
     {
         return GalleryForm::configure($schema);

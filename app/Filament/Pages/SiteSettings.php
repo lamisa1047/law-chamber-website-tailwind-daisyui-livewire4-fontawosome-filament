@@ -68,30 +68,6 @@ class SiteSettings extends Page
         return $schema
             ->components([
 
-                Section::make('Hero Section')
-                    ->icon(Heroicon::OutlinedPhoto)
-                    ->schema([
-                        TextInput::make('hero_title')
-                            ->label('Title')
-                            ->required()
-                            ->maxLength(255),
-
-                        TextArea::make('hero_subtitle')
-                            ->label('Subtitle')
-                            ->maxLength(255),
-
-                        FileUpload::make('hero_image')
-                            ->label('Image')
-                            ->image()
-                            ->imageEditor()
-                            ->disk('public')
-                            ->directory(FilePath::HERO->value)
-                            ->maxSize(ImageSize::MAX->value)
-                            ->imagePreviewHeight('200')
-                            ->dehydrated(true)
-                            ->columnSpanFull(),
-                    ])->columns(2),
-
                 Section::make('Company Info')
                     ->icon(Heroicon::OutlinedBuildingOffice)
                     ->schema([
@@ -101,6 +77,7 @@ class SiteSettings extends Page
                             ->maxLength(255),
 
                         Select::make('attorney_id')
+                            ->label('Managing Partner')
                             ->relationship('attorney', 'name')
                             ->nullable()
                             ->preload()
@@ -145,6 +122,31 @@ class SiteSettings extends Page
                             ->columnSpanFull(),
                     ])->columns(2),
 
+                Section::make('Hero Section')
+                    ->icon(Heroicon::OutlinedPhoto)
+                    ->schema([
+                        TextInput::make('hero_title')
+                            ->label('Title')
+                            ->required()
+                            ->maxLength(255),
+
+                        TextArea::make('hero_subtitle')
+                            ->label('Subtitle')
+                            ->maxLength(255),
+
+                        FileUpload::make('hero_image')
+                            ->label('Image')
+                            ->image()
+                            ->imageEditor()
+                            ->disk('public')
+                            ->directory(FilePath::HERO->value)
+                            ->maxSize(ImageSize::MAX->value)
+                            ->imagePreviewHeight('200')
+                            ->dehydrated(true)
+                            ->columnSpanFull(),
+                    ])->columns(2),
+
+
                 Section::make('Contact Details')
                     ->icon(Heroicon::OutlinedPhone)
                     ->schema([
@@ -168,10 +170,7 @@ class SiteSettings extends Page
                             ->dehydrateStateUsing(function ($state) {
                                 if (!$state) return null;
 
-                                // remove leading 0 if user types it
-                                $number = ltrim($state, '0');
-
-                                $number = str_replace("+88", "", $number);
+                                $number = str_replace("+88", "", $state);
 
                                 return 'https://wa.me/+88' . $number;
                             })

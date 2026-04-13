@@ -8,6 +8,7 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
@@ -19,9 +20,7 @@ class BlogsTable
         return $table
             ->columns([
                 ImageColumn::make('image')
-                    ->width(60)
-                    ->imageHeight(40)
-                ->disk('public'),
+                    ->disk('public'),
 
                 TextColumn::make('title')
                     ->searchable()
@@ -29,16 +28,12 @@ class BlogsTable
                     ->limit(45)
                     ->weight('bold'),
 
-                TextColumn::make('category')
+                TextColumn::make('category.name')
                     ->badge()
                     ->color('info')
                     ->searchable(),
 
-                TextColumn::make('read_time')
-                    ->color('gray'),
-
-                IconColumn::make('is_published')
-                    ->boolean()
+                ToggleColumn::make('is_published')
                     ->label('Published'),
 
                 TextColumn::make('created_at')
