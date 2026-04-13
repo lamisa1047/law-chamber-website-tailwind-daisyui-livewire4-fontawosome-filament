@@ -7,6 +7,7 @@ use App\Enums\ImageSize;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\TagsInput;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -21,10 +22,14 @@ class AttorneyForm
                 Section::make('Basic Info')->schema([
                     FileUpload::make('image')
                         ->image()
+                        ->imageEditor()
+                        ->automaticallyCropImagesToAspectRatio('1:1')
+                        ->imageEditorAspectRatioOptions([
+                            '1:1'
+                        ])
                         ->disk('public')
                         ->directory(FilePath::ATTORNEY->value)
-                        ->maxSize(ImageSize::COMMON->value)
-                        ->imagePreviewHeight('180')
+                        ->maxSize(ImageSize::MAX->value)
                         ->columnSpanFull(),
 
                     TextInput::make('name')
@@ -42,8 +47,7 @@ class AttorneyForm
                         ->maxLength(100)
                         ->placeholder('e.g. 14 years'),
 
-                    TextInput::make('practice_areas')
-                        ->maxLength(500)
+                    TagsInput::make('practice_areas')
                         ->placeholder('e.g. Family Law, Civil Litigation, Property Law')
                         ->helperText('Comma-separated list of practice areas')
                         ->columnSpanFull(),
@@ -73,9 +77,30 @@ class AttorneyForm
                         ->tel()
                         ->maxLength(20),
 
-                    TextInput::make('whatsapp')
+                    TextInput::make('contact_whatsapp')
+                        ->label('WhatsApp')
+                        ->prefix('+88')
                         ->tel()
-                        ->maxLength(20),
+                        ->maxLength(20)
+
+                        // 👉 Before saving to DB
+                        ->dehydrateStateUsing(function ($state) {
+                            if (!$state) return null;
+
+                            // remove leading 0 if user types it
+                            $number = ltrim($state, '0');
+
+                            $number = str_replace("+88", "", $number);
+
+                            return 'https://wa.me/+88' . $number;
+                        })
+
+                        // 👉 When showing in form (edit/view)
+                        ->formatStateUsing(function ($state) {
+                            if (!$state) return null;
+
+                            return str_replace('https://wa.me/+88', '', $state);
+                        }),
 
                     TextInput::make('facebook')
                         ->url()

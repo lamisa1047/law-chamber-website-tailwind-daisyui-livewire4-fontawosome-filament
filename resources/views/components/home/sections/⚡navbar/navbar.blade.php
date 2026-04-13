@@ -52,12 +52,15 @@
 
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2.5 shrink-0 mr-4 no-underline">
-        <div class="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center bg-forest">
+        <div class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center bg-forest">
+          @if ($logo)
+          <img src="/storage/{{$logo}}" />
+          @else
           <i class="fas fa-balance-scale text-gold text-sm"></i>
+          @endif
         </div>
         <div>
-          <div class="font-display font-bold text-forest text-base leading-none">ENSAF</div>
-          <div class="text-[10px] text-gold tracking-[0.2em] uppercase">Justice Law</div>
+          <div class="font-display font-bold text-forest text-base leading-none">{{$companyName ?? 'Unknown'}}</div>
         </div>
       </a>
 
@@ -100,21 +103,50 @@
 
       <!-- Right side -->
       <div class="hidden xl:flex items-center gap-3 ml-4">
-        <button class="text-gray-400 hover:text-gold transition-colors">
-          <i class="fas fa-search text-sm"></i>
-        </button>
-        <a href="#"
+
+        @if($contact?->facebook)
+        <a href="{{ $contact->facebook }}" target="_blank"
           class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-xs hover:text-gold hover:border-gold transition-all">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="#"
+        @endif
+
+        @if($contact?->instagram)
+        <a href="{{ $contact->instagram }}" target="_blank"
+          class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-xs hover:text-gold hover:border-gold transition-all">
+          <i class="fab fa-instagram"></i>
+        </a>
+        @endif
+
+        @if($contact?->twitter)
+        <a href="{{ $contact->twitter }}" target="_blank"
           class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-xs hover:text-gold hover:border-gold transition-all">
           <i class="fab fa-twitter"></i>
         </a>
-        <div class="w-px h-5 bg-gray-200"></div>
-        <a href="tel:+8801700000000" class="text-gold text-sm font-semibold flex items-center gap-1.5">
-          <i class="fas fa-phone text-xs"></i> +880 1700-000000
+        @endif
+
+        @if($contact?->linkedin)
+        <a href="{{ $contact->linkedin }}" target="_blank"
+          class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-xs hover:text-gold hover:border-gold transition-all">
+          <i class="fab fa-linkedin"></i>
         </a>
+        @endif
+
+        @if(
+        $contact?->facebook ||
+        $contact?->instagram ||
+        $contact?->twitter ||
+        $contact?->linkedin
+        )
+        <div class="w-px h-5 bg-gray-200"></div>
+        @endif
+
+        @if($contact?->phone)
+        <a href="tel:{{ $contact->phone }}" class="text-gold text-sm font-semibold flex items-center gap-1.5">
+          <i class="fas fa-phone text-xs"></i> {{ $contact->phone }}
+        </a>
+        @endif
+
       </div>
 
       <!-- Mobile button -->
@@ -192,28 +224,42 @@
 
     <!-- Bottom: phone + socials -->
     <div class="mt-5 flex items-center justify-between">
-      <a href="tel:+8801700000000" class="text-gold text-sm font-semibold flex items-center gap-1.5">
-        <i class="fas fa-phone text-xs"></i> +880 1700-000000
+
+      @if ($contact->phone)
+      <a href="tel:{{ $contact->phone }}" class="text-gold text-sm font-semibold flex items-center gap-1.5">
+        <i class="fas fa-phone text-xs"></i> {{ $contact->phone }}
       </a>
+      @endif
+
       <div class="flex items-center gap-2">
-        <a href="#"
+        @if ($contact->facebook)
+        <a href="{{ $contact->facebook }}"
           class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-xs hover:text-gold hover:border-gold transition-all">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="#"
-          class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-xs hover:text-gold hover:border-gold transition-all">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#"
-          class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-xs hover:text-gold hover:border-gold transition-all">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="#"
+        @endif
+
+        @if ($contact->instagram)
+        <a href="{{ $contact->instagram }}"
           class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-xs hover:text-gold hover:border-gold transition-all">
           <i class="fab fa-instagram"></i>
         </a>
-      </div>
-    </div>
+        @endif
 
-  </div>
+        @if ($contact->twitter)
+        <a href="{{ $contact->twitter }}"
+          class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-xs hover:text-gold hover:border-gold transition-all">
+          <i class="fab fa-twitter"></i>
+        </a>
+        @endif
+
+        @if ($contact->linkedin)
+        <a href="{{ $contact->linkedin }}"
+          class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-xs hover:text-gold hover:border-gold transition-all">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        @endif
+      </div>
+
+    </div>
 </nav>

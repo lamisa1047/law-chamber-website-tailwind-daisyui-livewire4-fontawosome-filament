@@ -19,71 +19,71 @@ class BlogForm
     {
         return $schema
             ->components([
-            Section::make('Post Details')->schema([
-                TextInput::make('title')
-                    ->required()
-                    ->maxLength(255)
-                    ->live(onBlur: true)
-                    ->afterStateUpdated(
-                        fn($state, callable $set) =>
-                        $set('slug', str($state)->slug())
-                    )
-                    ->columnSpanFull(),
+                Section::make('Post Details')->schema([
+                    TextInput::make('title')
+                        ->required()
+                        ->maxLength(255)
+                        ->live(onBlur: true)
+                        ->afterStateUpdated(
+                            fn($state, callable $set) =>
+                            $set('slug', str($state)->slug())
+                        )
+                        ->columnSpanFull(),
 
-                TextInput::make('slug')
-                    ->required()
-                    ->unique(ignoreRecord: true)
-                    ->maxLength(255)
-                    ->columnSpanFull(),
+                    TextInput::make('slug')
+                        ->required()
+                        ->unique(ignoreRecord: true)
+                        ->maxLength(255)
+                        ->columnSpanFull(),
 
-                Select::make('category')
-                    ->options(fn() => \App\Models\Category::pluck('name', 'name'))
-                    ->searchable()
-                    ->preload(),
+                    Select::make('category')
+                        ->options(fn() => \App\Models\Category::pluck('name', 'name'))
+                        ->searchable()
+                        ->preload(),
 
-                TextInput::make('read_time')
-                    ->maxLength(20)
-                    ->placeholder('e.g. 6 min read'),
+                    TextInput::make('read_time')
+                        ->maxLength(20)
+                        ->placeholder('e.g. 6 min read'),
 
-                TagsInput::make('tags')
-                    ->placeholder('Add tag and press Enter')
-                    ->columnSpanFull(),
+                    TagsInput::make('tags')
+                        ->placeholder('Add tag and press Enter')
+                        ->columnSpanFull(),
 
-                FileUpload::make('image')
-                    ->image()
-                    ->disk('public')
-                    ->directory(FilePath::BLOG->value)
-                    ->maxSize(ImageSize::COMMON->value)
-                    ->imagePreviewHeight('200')
-                    ->columnSpanFull(),
-            ])->columns(2),
+                    FileUpload::make('image')
+                        ->image()
+                        ->disk('public')
+                        ->directory(FilePath::BLOG->value)
+                        ->maxSize(ImageSize::MAX->value)
+                        ->imagePreviewHeight('200')
+                        ->columnSpanFull(),
+                ])->columns(2),
 
-            Section::make('Content')->schema([
-                RichEditor::make('content')
-                    ->required()
-                    ->toolbarButtons([
-                        'bold',
-                        'italic',
-                        'underline',
-                        'strike',
-                        'h2',
-                        'h3',
-                        'bulletList',
-                        'orderedList',
-                        'blockquote',
-                        'link',
-                        'undo',
-                        'redo',
-                    ])
-                    ->columnSpanFull(),
-            ]),
+                Section::make('Content')->schema([
+                    RichEditor::make('content')
+                        ->required()
+                        ->toolbarButtons([
+                            'bold',
+                            'italic',
+                            'underline',
+                            'strike',
+                            'h2',
+                            'h3',
+                            'bulletList',
+                            'orderedList',
+                            'blockquote',
+                            'link',
+                            'undo',
+                            'redo',
+                        ])
+                        ->columnSpanFull(),
+                ]),
 
-            Section::make('Publishing')->schema([
-                Toggle::make('is_published')
-                    ->default(false)
-                    ->live(),
+                Section::make('Publishing')->schema([
+                    Toggle::make('is_published')
+                        ->default(false)
+                        ->live(),
 
-            ])->columns(2),
+                ])->columns(2),
             ]);
     }
 }

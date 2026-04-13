@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Enums\FilePath;
+use App\Enums\ImageSize;
 use App\Models\CompanyInfo;
 use App\Models\Contact;
 use App\Models\HeroSection;
@@ -50,6 +51,7 @@ class SiteSettings extends Page
             'company_about_content' => $company->about_content,
 
             'contact_phone'         => $contact->phone,
+            'email'                 => $contact->email,
             'contact_whatsapp'      => $contact->whatsapp,
             'contact_facebook'      => $contact->facebook,
             'contact_linkedin'      => $contact->linkedin,
@@ -72,23 +74,23 @@ class SiteSettings extends Page
                         TextInput::make('hero_title')
                             ->label('Title')
                             ->required()
-                            ->maxLength(255)
-                            ->columnSpanFull(),
+                            ->maxLength(255),
 
-                        TextInput::make('hero_subtitle')
+                        TextArea::make('hero_subtitle')
                             ->label('Subtitle')
-                            ->maxLength(255)
-                            ->columnSpanFull(),
+                            ->maxLength(255),
 
                         FileUpload::make('hero_image')
                             ->label('Image')
                             ->image()
+                            ->imageEditor()
                             ->disk('public')
                             ->directory(FilePath::HERO->value)
+                            ->maxSize(ImageSize::MAX->value)
                             ->imagePreviewHeight('200')
                             ->dehydrated(true)
                             ->columnSpanFull(),
-                    ]),
+                    ])->columns(2),
 
                 Section::make('Company Info')
                     ->icon(Heroicon::OutlinedBuildingOffice)
@@ -109,18 +111,28 @@ class SiteSettings extends Page
                         FileUpload::make('company_logo')
                             ->label('Logo')
                             ->image()
+                            ->imageEditor()
+                            ->imageEditorAspectRatioOptions([
+                                '1:1',
+                            ])
+                            ->automaticallyCropImagesToAspectRatio('1:1')
                             ->disk('public')
                             ->directory(FilePath::COMPANY_LOGO->value)
-                            ->dehydrated(true)
-                            ->imagePreviewHeight('120'),
+                            ->maxSize(ImageSize::MAX->value)
+                            ->dehydrated(true),
 
                         FileUpload::make('company_image')
                             ->label('About Image')
                             ->image()
+                            ->imageEditor()
+                            ->imageEditorAspectRatioOptions([
+                                '4:3',
+                            ])
+                            ->automaticallyCropImagesToAspectRatio('4:3')
                             ->disk('public')
                             ->directory(FilePath::COMPANY_IMAGE->value)
-                            ->dehydrated(true)
-                            ->imagePreviewHeight('120'),
+                            ->maxSize(ImageSize::MAX->value)
+                            ->dehydrated(true),
 
                         TextInput::make('company_about_title')
                             ->label('About Title')
@@ -141,10 +153,35 @@ class SiteSettings extends Page
                             ->tel()
                             ->maxLength(20),
 
+                        TextInput::make('email')
+                            ->label('Email')
+                            ->email()
+                            ->maxLength(255),
+
                         TextInput::make('contact_whatsapp')
                             ->label('WhatsApp')
+                            ->prefix('+88')
                             ->tel()
-                            ->maxLength(20),
+                            ->maxLength(20)
+
+                            // 👉 Before saving to DB
+                            ->dehydrateStateUsing(function ($state) {
+                                if (!$state) return null;
+
+                                // remove leading 0 if user types it
+                                $number = ltrim($state, '0');
+
+                                $number = str_replace("+88", "", $number);
+
+                                return 'https://wa.me/+88' . $number;
+                            })
+
+                            // 👉 When showing in form (edit/view)
+                            ->formatStateUsing(function ($state) {
+                                if (!$state) return null;
+
+                                return str_replace('https://wa.me/+88', '', $state);
+                            }),
 
                         TextInput::make('contact_facebook')
                             ->label('Facebook URL')
@@ -193,7 +230,8 @@ class SiteSettings extends Page
             Action::make('save')
                 ->label('Save Settings')
                 ->icon(Heroicon::OutlinedCloudArrowUp)
-                ->action('save'),
+                ->action('save')
+                ->keyBindings(['command+s', 'ctrl+s'])
         ];
     }
 
@@ -226,6 +264,7 @@ class SiteSettings extends Page
             ['id' => 1],
             [
                 'phone'        => $data['contact_phone'],
+                'email'        => $data['email'],
                 'whatsapp'     => $data['contact_whatsapp'],
                 'facebook'     => $data['contact_facebook'],
                 'linkedin'     => $data['contact_linkedin'],

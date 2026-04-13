@@ -8,6 +8,7 @@ class Contact extends Model
 {
     protected $fillable = [
         'phone',
+        'email',
         'whatsapp',
         'facebook',
         'linkedin',
@@ -47,5 +48,14 @@ class Contact extends Model
         }
 
         return "https://www.google.com/maps/dir/?api=1&destination={$this->latitude},{$this->longitude}";
+    }
+
+    public function getEmbedMapUrl(): ?string
+    {
+        if (!$this->latitude || !$this->longitude) {
+            return null;
+        }
+
+        return "https://www.google.com/maps?q={$this->latitude},{$this->longitude}&hl=es;z=14&output=embed";
     }
 }

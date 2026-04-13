@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('experience')->nullable();
 
             // e.g. "Family Law, Civil Litigation, Property Law"
-            $table->string('practice_areas')->nullable();
+            $table->json('practice_areas')->nullable();
 
             $table->text('about')->nullable();
 

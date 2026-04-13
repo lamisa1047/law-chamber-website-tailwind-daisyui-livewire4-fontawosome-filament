@@ -20,7 +20,7 @@ class GalleryForm
                     ->required()
                     ->disk('public')
                     ->directory(FilePath::GALLERY->value)
-                    ->maxSize(ImageSize::COMMON->value)
+                    ->maxSize(ImageSize::MAX->value)
                     ->imagePreviewHeight('200')
                     ->columnSpanFull(),
 

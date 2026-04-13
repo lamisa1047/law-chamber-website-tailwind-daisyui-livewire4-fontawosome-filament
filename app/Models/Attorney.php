@@ -30,6 +30,7 @@ class Attorney extends Model
     protected $casts = [
         'credentials' => 'array',
         'is_active'   => 'boolean',
+        'practice_areas' => 'array',
     ];
 
     // Fetch all active attorneys ordered by sort_order

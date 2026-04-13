@@ -4,5 +4,5 @@ namespace App\Enums;
 
 enum ImageSize: int
 {
-    case COMMON = 3072;
+    case MAX = 3072;
 }
