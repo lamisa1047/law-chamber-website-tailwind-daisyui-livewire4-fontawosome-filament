@@ -10,32 +10,6 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Lato:wght@300;400;600;700&display=swap"
         rel="stylesheet" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            DEFAULT: '#B8935A',
-                            light: '#D4AA78',
-                            dark: '#8B6A38'
-                        },
-                        forest: {
-                            DEFAULT: '#1C3A35',
-                            light: '#2A5249',
-                            dark: '#0F2420'
-                        },
-                    },
-                    fontFamily: {
-                        display: ['Playfair Display', 'serif'],
-                        body: ['Lato', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
     <title>{{ $title ?? config('app.name') }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
