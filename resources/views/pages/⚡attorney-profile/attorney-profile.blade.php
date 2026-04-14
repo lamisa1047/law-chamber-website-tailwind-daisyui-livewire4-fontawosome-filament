@@ -45,10 +45,17 @@
             <!-- Quick actions -->
             <div class="flex gap-2 shrink-0">
 
-                @if($attorney->linkedin)
-                <a href="{{ $attorney->linkedin }}"
+                @if($attorney->facebook)
+                <a href="{{ $attorney->facebook }}"
                     class="w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition-all">
-                    <i class="fab fa-linkedin text-sm"></i>
+                    <i class="fab fa-facebook text-sm"></i>
+                </a>
+                @endif
+
+                @if($attorney->instagram)
+                <a href="{{ $attorney->instagram }}"
+                    class="w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition-all">
+                    <i class="fab fa-instagram text-sm"></i>
                 </a>
                 @endif
 
@@ -56,6 +63,13 @@
                 <a href="{{ $attorney->twitter }}"
                     class="w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition-all">
                     <i class="fab fa-twitter text-sm"></i>
+                </a>
+                @endif
+
+                @if($attorney->linkedin)
+                <a href="{{ $attorney->linkedin }}"
+                    class="w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition-all">
+                    <i class="fab fa-linkedin text-sm"></i>
                 </a>
                 @endif
 

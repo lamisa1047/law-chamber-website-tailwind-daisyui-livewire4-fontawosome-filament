@@ -109,7 +109,7 @@
           @if ($contact->phone)
           <div class="bg-white p-6 rounded-2xl shadow-sm">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gold text-white">
+              <div class="w-12 h-12 flex items-center justify-center rounded-full bg-forest text-white">
                 <i class="fas fa-phone"></i>
               </div>
               <div>
@@ -127,7 +127,7 @@
                 <i class="fas fa-envelope"></i>
               </div>
               <div>
-                <h4 class="font-bold text-forest">{{$contact->phone}}</h4>
+                <h4 class="font-bold text-forest">Email</h4>
                 <p class="text-sm text-gray-500">{{$contact->email}}</p>
               </div>
             </div>
@@ -137,7 +137,7 @@
           @if ($contact->full_address)
           <div class="bg-white p-6 rounded-2xl shadow-sm">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gold text-white">
+              <div class="w-12 h-12 flex items-center justify-center rounded-full bg-forest text-white">
                 <i class="fas fa-map-marker-alt"></i>
               </div>
               <div>

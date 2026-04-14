@@ -20,7 +20,7 @@ class GalleriesTable
                 ImageColumn::make('image')
                     ->width(80)
                     ->imageHeight(55)
-                ->disk('public'),
+                    ->disk('public'),
 
                 TextColumn::make('title')
                     ->searchable()
@@ -29,10 +29,6 @@ class GalleriesTable
                 TextColumn::make('subtitle')
                     ->limit(40)
                     ->color('gray'),
-
-                TextColumn::make('sort_order')
-                    ->sortable()
-                    ->label('Order'),
 
                 IconColumn::make('is_active')
                     ->boolean()

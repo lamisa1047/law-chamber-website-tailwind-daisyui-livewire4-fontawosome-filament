@@ -1,4 +1,4 @@
-<nav x-data="{
+<nav x-cloak x-data="{
   open: false,
   path: window.location.pathname,
   hash: window.location.hash,

@@ -17,6 +17,7 @@ class GalleryForm
             ->components([
                 FileUpload::make('image')
                     ->image()
+                    ->imageEditor()
                     ->required()
                     ->disk('public')
                     ->directory(FilePath::GALLERY->value)
@@ -29,10 +30,6 @@ class GalleryForm
 
                 TextInput::make('subtitle')
                     ->maxLength(255),
-
-                TextInput::make('sort_order')
-                    ->numeric()
-                    ->default(0),
 
                 Toggle::make('is_active')
                     ->default(true),

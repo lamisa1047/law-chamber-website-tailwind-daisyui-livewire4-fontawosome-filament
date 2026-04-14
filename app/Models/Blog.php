@@ -27,10 +27,15 @@ class Blog extends Model
         'published_at' => 'datetime',
     ];
 
-    // Fetch all published blogs paginated, newest first
-    public static function getPaginated(int $perPage = 9)
+    public static function getPaginated(?string $category = null, int $perPage = 9): LengthAwarePaginator
     {
-        return static::query()->where('is_published', true)
+        return static::where('is_published', true)
+            ->when($category, function ($query) use ($category) {
+                $query->whereHas('category', function ($q) use ($category) {
+                    $q->where('slug', $category);
+                });
+            })
+            ->with('category')
             ->orderByDesc('created_at')
             ->paginate($perPage);
     }
@@ -40,10 +45,10 @@ class Blog extends Model
     {
         return static::where('is_published', true)
             ->whereHas('category', function ($query) use ($category) {
-                $query->where('slug', $category); // or 'name'
+                $query->where('slug', $category);
             })
             ->with('category') // eager load properly
-            ->orderByDesc('published_at')
+            ->orderByDesc('created_at')
             ->paginate($perPage);
     }
 
