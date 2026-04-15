@@ -74,26 +74,5 @@
 
     </div>
 
-    <!-- Practice icons -->
-    <div class="mt-10 sm:mt-14 py-6 sm:py-8 border-y border-gray-200">
-      <div class="grid grid-cols-3 sm:grid-cols-6 gap-4 text-center">
-        <div class="flex flex-col items-center gap-1.5 text-forest hover:text-gold transition-colors cursor-pointer"><i
-            class="fas fa-balance-scale text-xl sm:text-2xl"></i><span class="text-xs font-semibold">Civil Law</span>
-        </div>
-        <div class="flex flex-col items-center gap-1.5 text-forest hover:text-gold transition-colors cursor-pointer"><i
-            class="fas fa-landmark text-xl sm:text-2xl"></i><span class="text-xs font-semibold">Criminal Law</span>
-        </div>
-        <div class="flex flex-col items-center gap-1.5 text-forest hover:text-gold transition-colors cursor-pointer"><i
-            class="fas fa-file-contract text-xl sm:text-2xl"></i><span class="text-xs font-semibold">Contract Law</span>
-        </div>
-        <div class="flex flex-col items-center gap-1.5 text-forest hover:text-gold transition-colors cursor-pointer"><i
-            class="fas fa-users text-xl sm:text-2xl"></i><span class="text-xs font-semibold">Family Law</span></div>
-        <div class="flex flex-col items-center gap-1.5 text-forest hover:text-gold transition-colors cursor-pointer"><i
-            class="fas fa-building text-xl sm:text-2xl"></i><span class="text-xs font-semibold">Corporate Law</span>
-        </div>
-        <div class="flex flex-col items-center gap-1.5 text-forest hover:text-gold transition-colors cursor-pointer"><i
-            class="fas fa-globe text-xl sm:text-2xl"></i><span class="text-xs font-semibold">International</span></div>
-      </div>
-    </div>
   </div>
 </section>

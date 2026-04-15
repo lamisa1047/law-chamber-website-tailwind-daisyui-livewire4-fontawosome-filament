@@ -2,11 +2,19 @@
 
 namespace App\Models;
 
+use App\Models\Attorney;
+use App\Traits\CleansUpImages;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyInfo extends Model
 {
+
+    use CleansUpImages;
+
+    protected static array $imageFields = ['image', 'logo'];
+
     protected $fillable = [
         'name',
         'logo',

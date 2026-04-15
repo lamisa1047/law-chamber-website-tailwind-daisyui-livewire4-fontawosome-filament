@@ -57,11 +57,6 @@
               Supreme Court
             </span>
 
-            <span
-              class="inline-flex items-center gap-1.5 bg-forest/5 border border-forest/10 text-forest text-xs font-medium px-3 py-1.5 rounded-full">
-              <i class="fas fa-graduation-cap text-[10px] text-gold"></i>
-              Lincoln's Inn
-            </span>
           </div>
         </div>
 

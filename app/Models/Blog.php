@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\CleansUpImages;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -9,6 +10,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Blog extends Model
 {
+
+    use CleansUpImages;
+
+    protected static array $imageFields = ['image'];
+
     protected $fillable = [
         'title',
         'slug',
@@ -18,13 +24,13 @@ class Blog extends Model
         'tags',
         'read_time',
         'is_published',
-        'published_at',
+        'created_at',
     ];
 
     protected $casts = [
         'tags'         => 'array',
         'is_published' => 'boolean',
-        'published_at' => 'datetime',
+        'created_at' => 'datetime',
     ];
 
     public static function getPaginated(?string $category = null, int $perPage = 9): LengthAwarePaginator
@@ -66,7 +72,7 @@ class Blog extends Model
     {
         return static::where('is_published', true)
             ->when($excludeId, fn($q) => $q->where('id', '!=', $excludeId))
-            ->orderByDesc('published_at')
+            ->orderByDesc('created_at')
             ->limit($limit)
             ->get();
     }
@@ -76,7 +82,7 @@ class Blog extends Model
     {
         return static::where('is_published', true)
             ->whereJsonContains('tags', $tag)
-            ->orderByDesc('published_at')
+            ->orderByDesc('created_at')
             ->paginate($perPage);
     }
 
@@ -84,7 +90,7 @@ class Blog extends Model
     public static function getFeatured(): ?self
     {
         return static::where('is_published', true)
-            ->orderByDesc('published_at')
+            ->orderByDesc('created_at')
             ->first();
     }
 

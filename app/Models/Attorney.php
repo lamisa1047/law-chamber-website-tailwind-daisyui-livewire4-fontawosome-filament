@@ -2,11 +2,17 @@
 
 namespace App\Models;
 
+use App\Traits\CleansUpImages;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Attorney extends Model
 {
+
+    use CleansUpImages;
+
+    protected static array $imageFields = ['image'];
+
     protected $fillable = [
         'image',
         'name',

@@ -238,7 +238,7 @@ class SiteSettings extends Page
     {
         $data = $this->form->getState();
 
-        HeroSection::updateOrInsert(
+        HeroSection::updateOrCreate(
             ['id' => 1],
             [
                 'title'    => $data['hero_title'],
@@ -247,7 +247,7 @@ class SiteSettings extends Page
             ]
         );
 
-        CompanyInfo::updateOrInsert(
+        CompanyInfo::updateOrCreate(
             ['id' => 1],
             [
                 'name'          => $data['company_name'],
@@ -259,7 +259,7 @@ class SiteSettings extends Page
             ]
         );
 
-        Contact::updateOrInsert(
+        Contact::updateOrCreate(
             ['id' => 1],
             [
                 'phone'        => $data['contact_phone'],
