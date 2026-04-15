@@ -9,6 +9,6 @@ new class extends Component
 
     public function mount()
     {
-        $this->latestPost = Blog::getRecent(8);
+        $this->latestPost = Blog::getRecent();
     }
 };
