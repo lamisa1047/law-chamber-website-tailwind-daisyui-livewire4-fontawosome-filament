@@ -1,14 +1,17 @@
 <?php
 
 use App\Models\Faq;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
-new class extends Component
-{
-    public $faqs;
-
-    function mount()
+new
+    #[Title("Frequently Asked Questions - FAQs")]
+    class extends Component
     {
-        $this->faqs = Faq::getAllActive();
-    }
-};
+        public $faqs;
+
+        function mount()
+        {
+            $this->faqs = Faq::getAllActive();
+        }
+    };

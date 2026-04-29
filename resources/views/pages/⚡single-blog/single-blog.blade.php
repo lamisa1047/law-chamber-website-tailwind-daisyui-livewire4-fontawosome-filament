@@ -95,51 +95,6 @@
                         </ul>
                     </div>
 
-                    {{--
-                    <!-- Recent Posts -->
-                    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-                        <p class="text-[10px] font-bold tracking-widest uppercase text-gold mb-4">Recent Posts</p>
-                        <div class="space-y-4">
-
-                            <a href="#" class="flex gap-3 group">
-                                <img src="https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=200&q=80"
-                                    class="w-14 h-14 rounded-xl object-cover shrink-0" />
-                                <div>
-                                    <p
-                                        class="text-xs font-semibold text-gray-700 group-hover:text-forest leading-snug transition-colors line-clamp-2">
-                                        I mix legal expertise with project management skills
-                                    </p>
-                                    <p class="text-[11px] text-gray-400 mt-1">March 5, 2026</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="flex gap-3 group">
-                                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=200&q=80"
-                                    class="w-14 h-14 rounded-xl object-cover shrink-0" />
-                                <div>
-                                    <p
-                                        class="text-xs font-semibold text-gray-700 group-hover:text-forest leading-snug transition-colors line-clamp-2">
-                                        Affordable legal representation with experience
-                                    </p>
-                                    <p class="text-[11px] text-gray-400 mt-1">Feb 28, 2026</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="flex gap-3 group">
-                                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=200&q=80"
-                                    class="w-14 h-14 rounded-xl object-cover shrink-0" />
-                                <div>
-                                    <p
-                                        class="text-xs font-semibold text-gray-700 group-hover:text-forest leading-snug transition-colors line-clamp-2">
-                                        Understanding cyber crime laws in Bangladesh
-                                    </p>
-                                    <p class="text-[11px] text-gray-400 mt-1">Feb 15, 2026</p>
-                                </div>
-                            </a>
-
-                        </div>
-                    </div> --}}
-
                     <!-- Tags -->
                     <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
                         <p class="text-[10px] font-bold tracking-widest uppercase text-gold mb-4">Tags</p>

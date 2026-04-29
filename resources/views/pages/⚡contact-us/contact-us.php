@@ -1,15 +1,18 @@
 <?php
 
 use App\Models\Contact;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
-new class extends Component
-{
-    public $contact;
-
-    function mount()
+new
+    #[Title("Contact")]
+    class extends Component
     {
-        /**@var Contact $contact */
-        $this->contact = Contact::getData();
-    }
-};
+        public $contact;
+
+        function mount()
+        {
+            /**@var Contact $contact */
+            $this->contact = Contact::getData();
+        }
+    };

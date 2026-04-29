@@ -14,7 +14,11 @@ new class extends Component
     function mount()
     {
         $this->attorney = Attorney::getById((int) $this->id);
+    }
 
-        // abort_if(!$this->attorney, 404);
+    public function render()
+    {
+        return $this->view()
+            ->title("Attorney: {$this?->attorney?->name}");
     }
 };

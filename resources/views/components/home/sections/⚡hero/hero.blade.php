@@ -288,10 +288,6 @@
             class="absolute inset-0 bg-linear-to-t from-forest/60 via-transparent to-transparent pointer-events-none">
           </div>
 
-          <!-- Optional: caption bar at bottom of image -->
-          <div class="absolute bottom-0 left-0 right-0 px-5 py-3 flex items-center justify-between pointer-events-none">
-            <span class="text-white/70 font-body text-xs uppercase tracking-widest">Our Office</span>
-          </div>
         </div>
 
         <!-- Accent dots — top right -->

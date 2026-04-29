@@ -20,4 +20,10 @@ new class extends Component
     {
         return Category::getAll();
     }
+
+    public function render()
+    {
+        return $this->view()
+            ->title("{$this?->post()?->title}");
+    }
 };
